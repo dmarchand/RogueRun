@@ -1,0 +1,8 @@
+*.csproj
+RogueRunProject\Library/
+
+RogueRunProject/Temp/
+RogueRunProject\Library\metadata/
+RogueRunProject/Library/
+*.sln
+*.DotSettings
