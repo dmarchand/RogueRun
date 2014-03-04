@@ -58,14 +58,14 @@ public class WeaponAreaController : MonoBehaviour
             return;
         }
 
-        /*if (_player.CurrentSwordEnergy > 0)
-        {*/
-            Destroy(other.gameObject);
 
-            //_player.CurrentSwordEnergy -= _player.SwordEnergyCost;
-            this.renderer.enabled = true;
-            this._isAnimating = true;
-            this._animatedTime = 0;
-        //}
+        Destroy(other.gameObject);
+        _player.AttackEnemy(enemy.Damage, enemy.StaminaReward);
+        _player.Gold += enemy.Gold;
+
+        this.renderer.enabled = true;
+        this._isAnimating = true;
+        this._animatedTime = 0;
+
     }
 }
