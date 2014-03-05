@@ -178,11 +178,11 @@ public class PlayerController : MonoBehaviour
             MoveHorizontal(transform.position.x + currentSpeed);
 
         }
-        else if (Input.GetButton("Fire1"))
-        {
+        //else if (Input.GetButton("Fire1"))
+        //{
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             MoveHorizontal(mousePos.x);
-        }
+        //}
 
     }
 

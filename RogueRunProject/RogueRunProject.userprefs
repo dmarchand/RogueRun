@@ -1,16 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/Actors/PlayerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Scripts/Dungeons/DungeonController.cs">
     <Files>
-      <File FileName="Assets/Resources/Scripts/Dungeons/DungeonController.cs" Line="43" Column="24" />
-      <File FileName="Assets/Resources/Scripts/GameController.cs" Line="57" Column="13" />
-      <File FileName="Assets/Resources/Scripts/Actors/PlayerController.cs" Line="160" Column="17" />
+      <File FileName="Assets/Resources/Scripts/Dungeons/DungeonController.cs" Line="94" Column="15" />
+      <File FileName="Assets/Resources/Scripts/GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Actors/PlayerController.cs" Line="269" Column="50" />
       <File FileName="Assets/Resources/Scripts/Actors/ShopkeeperController.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/Actors/Enemies/EnemyController.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Scripts/Actors/Enemies/EnemyFallController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Scripts/Items/ShopItemContainerController.cs" Line="39" Column="45" />
-      <File FileName="Assets/Resources/Scripts/Items/StaminaRecoveryItemController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Items/ShopItemContainerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Items/StaminaRecoveryItemController.cs" Line="21" Column="10" />
       <File FileName="Assets/Resources/Scripts/Items/ShopWindowController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Scripts/Items/HealthRecoveryItemController.cs" Line="19" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
