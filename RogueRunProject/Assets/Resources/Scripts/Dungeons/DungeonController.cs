@@ -26,17 +26,23 @@ public class DungeonController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(_gameController.IsPaused) 
+		{
+			return;
+		}
+
         UpdateSpawns();
 	}
 
     void SetNextSpawnTime()
     {
-        _nextSpawnTime = Random.RandomRange(MinimumSpawnTime, MaximumSpawnTime);
+        _nextSpawnTime = Random.Range(MinimumSpawnTime, MaximumSpawnTime);
         _elapsedTime = 0;
     }
 
     void UpdateSpawns()
     {
+
         _elapsedTime += Time.deltaTime;
 
         if (_elapsedTime >= _nextSpawnTime)
@@ -82,7 +88,7 @@ public class DungeonController : MonoBehaviour {
             int roll = Random.Range(0, 100);
             int cumulative = 0;
             ShopItemInformation[] slotItems = ShopItems[i].ShopSlotItems;
-            for (int q = 0; i < slotItems.Length; q++)
+            for (int q = 0; q < slotItems.Length; q++)
             {
                 cumulative += slotItems[q].SpawnChance;
                 if (roll < cumulative)

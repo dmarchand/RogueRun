@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -146,8 +147,9 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private ScreenFlashController _screenFlashController;
+	private GameController _gameController;
 
-
+	public IList<PurchasableItemController> Inventory;
 
     void Start()
     {
@@ -160,6 +162,8 @@ public class PlayerController : MonoBehaviour
         CurrentLevel = 1;
 
         _screenFlashController = GameObject.Find("FlashEffect").GetComponent<ScreenFlashController>();
+		_gameController = GameObject.Find("Main Camera").GetComponent<GameController>();
+		Inventory = new List<PurchasableItemController>();
     }
 
     void HandleInputs()
@@ -201,7 +205,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+		if(_gameController.IsPaused) 
+		{
+			return;
+		}
         HandleInputs();
         HandleVitals();
     }
@@ -256,6 +263,11 @@ public class PlayerController : MonoBehaviour
     {
         CurrentStamina = Mathf.Min(CurrentStamina + amount, MaxStamina);
     }
+
+	public void RecoverHealth(int amount)
+	{
+		CurrentHp = Mathf.Min(CurrentHp + amount, MaxHp);
+	}
 
     void LevelUp()
     {

@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     private ShopWindowController _shopWindowController;
     public DungeonController ActiveDungeon;
     private dfPanel[] _shopItemContainers;
+	public bool IsPaused;
 
     // Use this for initialization
     void Start()
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour
         _shopItemContainers[1] = GameObject.Find("ShopItemContainer2").GetComponent<dfPanel>();
         _shopItemContainers[2] = GameObject.Find("ShopItemContainer3").GetComponent<dfPanel>();
         _shopItemContainers[3] = GameObject.Find("ShopItemContainer4").GetComponent<dfPanel>();
+
+		IsPaused = false;
 
         // Debug force dungeon for now
         ActiveDungeon = ((GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/Dungeons/DebugDungeon"))).GetComponent<DungeonController>();
@@ -49,13 +52,17 @@ public class GameController : MonoBehaviour
             shopItemContainer.ItemNameLabel.Text = itemInfo.DisplayName;
             shopItemContainer.ItemDescriptionLabel.Text = itemInfo.Description;
             shopItemContainer.ItemCostLabel.Text = "Cost: " + itemInfo.Price;
+			shopItemContainer.AttachedItemPrefab = itemInfo;
             _shopItemContainers[i].IsVisible = true;
-           
+            
         }
+
+		IsPaused = true;
     }
 
     public void CloseShop()
     {
         _shopWindowController.GetComponent<dfPanel>().IsVisible = false;
+		IsPaused = false;
     }
 }
