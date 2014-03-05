@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class WeaponAreaController : MonoBehaviour
@@ -84,7 +84,7 @@ public class WeaponAreaController : MonoBehaviour
 
         Destroy(enemy.gameObject);
         _player.AttackEnemy(enemy.Damage, enemy.StaminaReward);
-        _player.Gold += enemy.Gold;
+        _player.Gold += enemy.GoldReward;
 
         this.renderer.enabled = true;
         this._isAnimating = true;

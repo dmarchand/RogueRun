@@ -11,8 +11,17 @@ public class EnemyController : MonoBehaviour
     public int Damage;
 
 
-    public int Gold;
+    public int BaseGold;
     public int StaminaReward;
+
+	[HideInInspector]
+	public int GoldReward 
+	{
+		get
+		{
+			return BaseGold + Damage;
+		}
+	}
 
 
     // Use this for initialization
