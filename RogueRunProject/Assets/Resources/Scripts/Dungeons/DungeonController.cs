@@ -7,6 +7,7 @@ public class DungeonController : MonoBehaviour {
     private LaneManagerController _laneManager;
 
     public EntitySpawnInformation[] Entities;
+    public ShopSlotInformation[] ShopItems;
 
     public float MinimumSpawnTime;
     public float MaximumSpawnTime;
@@ -14,9 +15,12 @@ public class DungeonController : MonoBehaviour {
     private float _nextSpawnTime;
     private float _elapsedTime;
 
+    private GameController _gameController;
+
 	// Use this for initialization
 	void Start () {
         _laneManager = GameObject.Find("LaneManager").GetComponent<LaneManagerController>();
+        _gameController = GameObject.Find("Main Camera").GetComponent<GameController>();
         SetNextSpawnTime();
 	}
 	
@@ -69,10 +73,47 @@ public class DungeonController : MonoBehaviour {
         throw new System.Exception("Probabilities for spawning entity didn't add up...");
     }
 
+    public void GenerateShop()
+    {
+        ShopItemInformation[] rolledShopItems = new ShopItemInformation[4];
+
+        for (int i = 0; i < ShopItems.Length; i++)
+        {
+            int roll = Random.Range(0, 100);
+            int cumulative = 0;
+            ShopItemInformation[] slotItems = ShopItems[i].ShopSlotItems;
+            for (int q = 0; i < slotItems.Length; q++)
+            {
+                cumulative += slotItems[q].SpawnChance;
+                if (roll < cumulative)
+                {
+                    rolledShopItems[ShopItems[i].Slot] = slotItems[q];
+                    break;
+                }
+            }
+        }
+
+        _gameController.DisplayShop(rolledShopItems);
+    }
+
     [System.Serializable]
     public class EntitySpawnInformation
     {
         public GameObject Entity;
         public int SpawnChance;
+    }
+
+    [System.Serializable]
+    public class ShopSlotInformation
+    {
+        public ShopItemInformation[] ShopSlotItems;
+        public int Slot;
+    }
+
+    [System.Serializable]
+    public class ShopItemInformation
+    {
+        public int SpawnChance;
+        public GameObject ShopItemPrefab;
     }
 }

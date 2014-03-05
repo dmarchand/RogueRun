@@ -4,7 +4,8 @@ using System.Collections;
 public class WeaponAreaController : MonoBehaviour
 {
 
-    private PlayerController _player;
+    PlayerController _player;
+    DungeonController _dungeon;
 
     [SerializeField]
     private float _animationTime;
@@ -30,6 +31,7 @@ public class WeaponAreaController : MonoBehaviour
     void Start()
     {
         _player = this.transform.parent.GetComponent<PlayerController>();
+        _dungeon = GameObject.Find("Main Camera").GetComponent<GameController>().ActiveDungeon;
         this.renderer.enabled = false;
         _animatedTime = 0;
         _isAnimating = false;
@@ -53,19 +55,39 @@ public class WeaponAreaController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         EnemyController enemy = other.GetComponent<EnemyController>();
-        if (!enemy)
+        if (enemy)
         {
+            CollideWithEnemy(enemy);
             return;
         }
 
+        ShopkeeperController shopkeeper = other.GetComponent<ShopkeeperController>();
+        if (shopkeeper)
+        {
+            CollideWithShop(shopkeeper);
+        }
 
-        Destroy(other.gameObject);
+    }
+
+    void CollideWithShop(ShopkeeperController shopkeeper)
+    {
+        _dungeon = GameObject.Find("Main Camera").GetComponent<GameController>().ActiveDungeon;
+        _dungeon.GenerateShop();
+
+        Destroy(shopkeeper.gameObject);
+
+        
+    }
+
+    void CollideWithEnemy(EnemyController enemy)
+    {
+
+        Destroy(enemy.gameObject);
         _player.AttackEnemy(enemy.Damage, enemy.StaminaReward);
         _player.Gold += enemy.Gold;
 
         this.renderer.enabled = true;
         this._isAnimating = true;
         this._animatedTime = 0;
-
     }
 }

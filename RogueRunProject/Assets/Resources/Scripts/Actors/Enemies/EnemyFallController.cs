@@ -13,5 +13,15 @@ public class EnemyFallController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - fallSpeed, this.transform.position.z);
+
+        CheckBounds();
 	}
+
+    void CheckBounds()
+    {
+        if (this.transform.position.y < -5)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

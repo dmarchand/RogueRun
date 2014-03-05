@@ -252,6 +252,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void RecoverStamina(int amount)
+    {
+        CurrentStamina = Mathf.Min(CurrentStamina + amount, MaxStamina);
+    }
+
     void LevelUp()
     {
         XPToNextLevel += (int)(XPToNextLevel * (1.1 + CurrentLevel / 3));

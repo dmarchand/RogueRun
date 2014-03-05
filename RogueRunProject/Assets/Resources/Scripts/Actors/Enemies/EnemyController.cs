@@ -23,14 +23,8 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        CheckBounds();
+
     }
 
-    void CheckBounds()
-    {
-        if (this.transform.position.y < -5)
-        {
-            Destroy(gameObject);
-        }
-    }
+
 }

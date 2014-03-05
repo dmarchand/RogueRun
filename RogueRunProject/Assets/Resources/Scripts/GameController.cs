@@ -5,42 +5,57 @@ public class GameController : MonoBehaviour
 {
     public GameObject[] levels;
 
+    private ShopWindowController _shopWindowController;
+    public DungeonController ActiveDungeon;
+    private dfPanel[] _shopItemContainers;
+
     // Use this for initialization
     void Start()
     {
+        _shopWindowController = GameObject.Find("ShopWindowPanel").GetComponent<ShopWindowController>();
+        _shopItemContainers = new dfPanel[4];
 
-        /*GameObject messenger = GameObject.Find("LevelMessageContainer");
+        _shopItemContainers[0] = GameObject.Find("ShopItemContainer1").GetComponent<dfPanel>();
+        _shopItemContainers[1] = GameObject.Find("ShopItemContainer2").GetComponent<dfPanel>();
+        _shopItemContainers[2] = GameObject.Find("ShopItemContainer3").GetComponent<dfPanel>();
+        _shopItemContainers[3] = GameObject.Find("ShopItemContainer4").GetComponent<dfPanel>();
 
-        LevelMessageContainerController messengerController = null;
-        if (messenger != null)
-        {
-            messengerController = messenger.GetComponent<LevelMessageContainerController>();
-        }
-
-        string levelToLoad = "Debug Land";
-
-        if (messengerController != null)
-        {
-            levelToLoad = messengerController.levelName;
-
-            Destroy(messenger);
-        }
-
-        for (int i = 0; i < levels.Length; i++)
-        {
-            Debug.Log(levels[i].GetComponent<LevelController>().levelSelectInfo.name);
-            if (levelToLoad == levels[i].GetComponent<LevelController>().levelSelectInfo.name)
-            {
-                Instantiate(levels[i], new Vector3(0, 4, 1), Quaternion.identity);
-                Debug.Log("Loading: " + levelToLoad);
-                break;
-            }
-        }*/
+        // Debug force dungeon for now
+        ActiveDungeon = ((GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/Dungeons/DebugDungeon"))).GetComponent<DungeonController>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void DisplayShop(DungeonController.ShopItemInformation[] shopItems)
+    {
+        _shopWindowController.GetComponent<dfPanel>().IsVisible = true;
+
+        for (int i = 0; i < shopItems.Length; i++)
+        {
+            if (shopItems[i] == null)
+            {
+                _shopItemContainers[i].IsVisible = false;
+                continue;
+            }
+
+            ShopItemContainerController shopItemContainer = _shopItemContainers[i].GetComponent<ShopItemContainerController>();
+
+            PurchasableItemController itemInfo = shopItems[i].ShopItemPrefab.GetComponent<PurchasableItemController>();
+            shopItemContainer.DisplaySprite.SpriteName = itemInfo.SpriteName;
+            shopItemContainer.ItemNameLabel.Text = itemInfo.DisplayName;
+            shopItemContainer.ItemDescriptionLabel.Text = itemInfo.Description;
+            shopItemContainer.ItemCostLabel.Text = "Cost: " + itemInfo.Price;
+            _shopItemContainers[i].IsVisible = true;
+           
+        }
+    }
+
+    public void CloseShop()
+    {
+        _shopWindowController.GetComponent<dfPanel>().IsVisible = false;
     }
 }
