@@ -10,6 +10,8 @@ public class DungeonController : MonoBehaviour {
     public ShopSlotInformation[] ShopItems;
     public TreasureSpawnInformation[] Treasures;
 	public CoinRewardInformation CoinRewardRange;
+	public GameObject NextDungeon;
+	public int Depth;
 
     public float MinimumSpawnTime;
     public float MaximumSpawnTime;

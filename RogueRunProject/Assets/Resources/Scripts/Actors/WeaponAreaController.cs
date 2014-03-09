@@ -6,6 +6,7 @@ public class WeaponAreaController : MonoBehaviour
 
     PlayerController _player;
     DungeonController _dungeon;
+	GameController _gameController;
 
     [SerializeField]
     private float _animationTime;
@@ -35,11 +36,13 @@ public class WeaponAreaController : MonoBehaviour
         this.renderer.enabled = false;
         _animatedTime = 0;
         _isAnimating = false;
+		_gameController = GameObject.Find("Main Camera").GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+		_dungeon = _gameController.ActiveDungeon;
         if (_isAnimating)
         {
             _animatedTime += Time.deltaTime;
@@ -75,7 +78,24 @@ public class WeaponAreaController : MonoBehaviour
             return;
         }
 
+		DungeonLevelChangeController levelChange = other.GetComponent<DungeonLevelChangeController>();
+		if(levelChange)
+		{
+			CollideWithDungeonChange(levelChange);
+			return;
+		}
+
     }
+
+	void CollideWithDungeonChange(DungeonLevelChangeController levelChange)
+	{
+		if(_dungeon.NextDungeon) 
+		{
+			_gameController.AdvanceToDungeon(_dungeon.NextDungeon);
+		}
+
+		Destroy(levelChange.gameObject);
+	}
 
     void CollideWithTreasure(TreasureChestController treasure)
     {

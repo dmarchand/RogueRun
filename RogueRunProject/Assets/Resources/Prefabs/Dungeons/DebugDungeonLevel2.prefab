@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: DebugDungeon
+  m_Name: DebugDungeonLevel2
   m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,13 +39,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entities:
-  - Entity: {fileID: 100000, guid: 8b326b45e79db6a4c93df8fe582d4ef6, type: 2}
-    SpawnChance: 93
+  - Entity: {fileID: 100002, guid: 5675b9b7ba6364710aebaf5947487c12, type: 2}
+    SpawnChance: 98
   - Entity: {fileID: 100000, guid: 560717d6bfda6ca489590d2e516148db, type: 2}
-    SpawnChance: 3
-  - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
     SpawnChance: 2
-  - Entity: {fileID: 100000, guid: 2b5c9c4bdf5b94cf793a46930b7036bd, type: 2}
+  - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
     SpawnChance: 2
   ShopItems:
   - ShopSlotItems:
@@ -66,10 +64,10 @@ MonoBehaviour:
   CoinRewardRange:
     MinCoins: 10
     MaxCoins: 35
-  NextDungeon: {fileID: 100000, guid: b6d86022ed942426a8fd6610f807f334, type: 2}
-  Depth: 1
-  MinimumSpawnTime: 1
-  MaximumSpawnTime: 2
+  NextDungeon: {fileID: 0}
+  Depth: 2
+  MinimumSpawnTime: .800000012
+  MaximumSpawnTime: 1.79999995
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

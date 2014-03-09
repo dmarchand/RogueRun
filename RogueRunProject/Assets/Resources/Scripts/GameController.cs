@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public DungeonController ActiveDungeon;
     private dfPanel[] _shopItemContainers;
 	public bool IsPaused;
+	private LogController _logController;
 
     // Use this for initialization
     void Start()
@@ -21,10 +22,13 @@ public class GameController : MonoBehaviour
         _shopItemContainers[2] = GameObject.Find("ShopItemContainer3").GetComponent<dfPanel>();
         _shopItemContainers[3] = GameObject.Find("ShopItemContainer4").GetComponent<dfPanel>();
 
+		_logController = GameObject.Find("LogDisplayLabel").GetComponent<LogController>();
+
 		IsPaused = false;
 
         // Debug force dungeon for now
-        ActiveDungeon = ((GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/Dungeons/DebugDungeon"))).GetComponent<DungeonController>();
+		AdvanceToDungeon(Resources.Load<GameObject>("Prefabs/Dungeons/DebugDungeon"));
+        //ActiveDungeon = ((GameObject)Instantiate(Resources.Load<GameObject>("Prefabs/Dungeons/DebugDungeon"))).GetComponent<DungeonController>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,20 @@ public class GameController : MonoBehaviour
     {
 
     }
+
+	public void AdvanceToDungeon(GameObject dungeonPrefab) 
+	{
+		if(ActiveDungeon != null) 
+		{
+			Destroy(ActiveDungeon.gameObject);
+		}
+
+		GameObject spawnedDungeon = (GameObject)Instantiate(dungeonPrefab);
+		ActiveDungeon = spawnedDungeon.GetComponent<DungeonController>();
+
+		_logController.AppendLine("You entered Level " + ActiveDungeon.Depth);
+
+	}
 
     public void DisplayShop(DungeonController.ShopItemInformation[] shopItems)
     {

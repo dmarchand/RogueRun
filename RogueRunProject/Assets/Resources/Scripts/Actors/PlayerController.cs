@@ -301,6 +301,7 @@ public class PlayerController : MonoBehaviour
 
         _baseAttackPower += 1;
         MaxHp += 5;
+		CurrentHp += 5;
         //CurrentHp = MaxHp;
         CurrentLevel++;
     }
