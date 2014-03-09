@@ -40,9 +40,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entities:
   - Entity: {fileID: 100000, guid: 8b326b45e79db6a4c93df8fe582d4ef6, type: 2}
-    SpawnChance: 97
+    SpawnChance: 95
   - Entity: {fileID: 100000, guid: 560717d6bfda6ca489590d2e516148db, type: 2}
     SpawnChance: 3
+  - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
+    SpawnChance: 2
   ShopItems:
   - ShopSlotItems:
     - SpawnChance: 100
@@ -52,6 +54,11 @@ MonoBehaviour:
     - SpawnChance: 100
       ShopItemPrefab: {fileID: 100000, guid: fdabffc61861e4002b040f87734e48de, type: 2}
     Slot: 1
+  Treasures:
+  - TreasurePrefab: {fileID: 100000, guid: 61e4c8551d2f10c4982b760457212bc4, type: 2}
+    SpawnChance: 50
+  - TreasurePrefab: {fileID: 100000, guid: fdabffc61861e4002b040f87734e48de, type: 2}
+    SpawnChance: 50
   MinimumSpawnTime: 1
   MaximumSpawnTime: 2
 --- !u!1001 &100100000

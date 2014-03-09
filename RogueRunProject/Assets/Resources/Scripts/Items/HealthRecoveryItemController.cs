@@ -17,7 +17,8 @@ public class HealthRecoveryItemController : MonoBehaviour {
 		if (_purchasableItem.IsPurchased)
 		{
 			GameObject.Find("Player").GetComponent<PlayerController>().RecoverHealth(HealthRecovered);
-			Destroy(gameObject);
+            _purchasableItem.LogPurchase("You acquired a Health Potion and recovered " + HealthRecovered + " hp!");
+			Destroy(gameObject);    
 		}
 	}
 }

@@ -17,6 +17,7 @@ public class StaminaRecoveryItemController : MonoBehaviour {
         if (_purchasableItem.IsPurchased)
         {
             GameObject.Find("Player").GetComponent<PlayerController>().RecoverStamina(StaminaRecovered);
+            _purchasableItem.LogPurchase("You acquired a Stamina Potion and recovered " + StaminaRecovered + " stamina!");
             Destroy(gameObject);
         }
 	}

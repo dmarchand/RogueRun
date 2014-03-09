@@ -8,6 +8,7 @@ public class DungeonController : MonoBehaviour {
 
     public EntitySpawnInformation[] Entities;
     public ShopSlotInformation[] ShopItems;
+    public TreasureSpawnInformation[] Treasures;
 
     public float MinimumSpawnTime;
     public float MaximumSpawnTime;
@@ -50,9 +51,32 @@ public class DungeonController : MonoBehaviour {
 
             GameObject entityToSpawn = GetEntityToSpawn();
             LaneController laneToSpawnIn = GetLaneToSpawnIn();
-            Instantiate(entityToSpawn, laneToSpawnIn.transform.position, Quaternion.identity);
+            GameObject result = (GameObject) Instantiate(entityToSpawn, laneToSpawnIn.transform.position, Quaternion.identity);
+
+            TreasureChestController treasure = result.GetComponent<TreasureChestController>();
+            if (treasure != null)
+            {
+                SpawnTreasure(treasure);
+            }
+
 
             SetNextSpawnTime();
+        }
+    }
+
+    void SpawnTreasure(TreasureChestController treasure)
+    {
+        int roll = Random.Range(0, 100);
+
+        int cumulative = 0;
+        for (int i = 0; i < Entities.Length; i++)
+        {
+            cumulative += Treasures[i].SpawnChance;
+            if (roll < cumulative)
+            {
+                treasure.ItemReward = ((GameObject)Instantiate(Treasures[i].TreasurePrefab)).GetComponent<PurchasableItemController>();
+                return;
+            }
         }
     }
 
@@ -121,5 +145,12 @@ public class DungeonController : MonoBehaviour {
     {
         public int SpawnChance;
         public GameObject ShopItemPrefab;
+    }
+
+    [System.Serializable]
+    public class TreasureSpawnInformation
+    {
+        public GameObject TreasurePrefab;
+        public int SpawnChance;
     }
 }

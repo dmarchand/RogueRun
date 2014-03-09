@@ -66,6 +66,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public string HpDisplay
+    {
+        get
+        {
+            return "" + (int)CurrentHp + "/" + MaxHp;
+        }
+    }
+
     private float _currentStamina;
 
     public float CurrentStamina
@@ -79,6 +87,14 @@ public class PlayerController : MonoBehaviour
         set
         {
             _currentStamina = value;
+        }
+    }
+
+    public string StaminaDisplay
+    {
+        get
+        {
+            return "" + (int)CurrentStamina + "/" + MaxStamina;
         }
     }
 
@@ -242,16 +258,19 @@ public class PlayerController : MonoBehaviour
 
     public void AttackEnemy(EnemyController enemy)
     {
-        string logMessage = "You defeated " + enemy.DisplayName + ". ";
-        logMessage += "+" + enemy.GoldReward + " coins!";
+        int damage = 0;
         if (this.AttackPower < enemy.Damage)
         {
             this.CurrentHp -= enemy.Damage;
             _screenFlashController.FlashScreen(Color.red, 5);
-            logMessage += "\nBut you took " + enemy.Damage + " damage!";
+            
+            damage = enemy.Damage;
 
         }
 
+        string logMessage = "You defeated " + enemy.DisplayName + ". ";
+        logMessage += "+" + enemy.GoldReward + " coins!";
+        logMessage += "\nYou took " + enemy.Damage + " damage and gained " + enemy.StaminaReward + " stamina.";
         CurrentXP += enemy.Damage;
         CurrentStamina = Mathf.Min(CurrentStamina + enemy.StaminaReward, MaxStamina);
 

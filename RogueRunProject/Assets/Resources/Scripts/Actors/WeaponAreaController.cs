@@ -61,12 +61,28 @@ public class WeaponAreaController : MonoBehaviour
             return;
         }
 
+        TreasureChestController treasure = other.GetComponent<TreasureChestController>();
+        if (treasure)
+        {
+            CollideWithTreasure(treasure);
+            return;
+        }
+
         ShopkeeperController shopkeeper = other.GetComponent<ShopkeeperController>();
         if (shopkeeper)
         {
             CollideWithShop(shopkeeper);
+            return;
         }
 
+    }
+
+    void CollideWithTreasure(TreasureChestController treasure)
+    {
+        treasure.ItemReward.IsPurchased = true;
+        _player.Inventory.Add(treasure.ItemReward);
+        
+        Destroy(treasure.gameObject);
     }
 
     void CollideWithShop(ShopkeeperController shopkeeper)
