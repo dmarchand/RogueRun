@@ -48,7 +48,11 @@ MonoBehaviour:
   - Entity: {fileID: 100000, guid: 2b5c9c4bdf5b94cf793a46930b7036bd, type: 2}
     SpawnChance: 2
   - Entity: {fileID: 100000, guid: 41d42232cda754c959cceda392b20f5b, type: 2}
-    SpawnChance: 5
+    SpawnChance: 3
+  - Entity: {fileID: 100006, guid: c8615e859b7b84d338faccf4caf93d9f, type: 2}
+    SpawnChance: 1
+  - Entity: {fileID: 100006, guid: f09da6331e2a34c159561d7329b2c6b7, type: 2}
+    SpawnChance: 1
   ShopItems:
   - ShopSlotItems:
     - SpawnChance: 100

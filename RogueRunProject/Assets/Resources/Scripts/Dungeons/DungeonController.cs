@@ -57,7 +57,7 @@ public class DungeonController : MonoBehaviour {
             LaneController laneToSpawnIn = GetLaneToSpawnIn();
             GameObject result = (GameObject) Instantiate(entityToSpawn, laneToSpawnIn.transform.position, Quaternion.identity);
 
-            TreasureChestController treasure = result.GetComponent<TreasureChestController>();
+			TreasureChestController treasure = CheckForTreasure(result);
             if (treasure != null)
             {
                 SpawnTreasure(treasure);
@@ -68,6 +68,18 @@ public class DungeonController : MonoBehaviour {
             SetNextSpawnTime();
         }
     }
+
+	TreasureChestController CheckForTreasure(GameObject gameObject)
+	{
+		TreasureChestController treasure = gameObject.GetComponent<TreasureChestController>();
+
+		if(!treasure)
+		{
+			treasure = gameObject.GetComponentInChildren<TreasureChestController>();
+		}
+
+		return treasure;
+	}
 
     void SpawnTreasure(TreasureChestController treasure)
     {
