@@ -56,9 +56,14 @@ MonoBehaviour:
     Slot: 1
   Treasures:
   - TreasurePrefab: {fileID: 100000, guid: 61e4c8551d2f10c4982b760457212bc4, type: 2}
-    SpawnChance: 50
+    SpawnChance: 25
   - TreasurePrefab: {fileID: 100000, guid: fdabffc61861e4002b040f87734e48de, type: 2}
+    SpawnChance: 25
+  - TreasurePrefab: {fileID: 100000, guid: d58e6da25ee7a4893ba2628dfdb6891f, type: 2}
     SpawnChance: 50
+  CoinRewardRange:
+    MinCoins: 10
+    MaxCoins: 35
   MinimumSpawnTime: 1
   MaximumSpawnTime: 2
 --- !u!1001 &100100000

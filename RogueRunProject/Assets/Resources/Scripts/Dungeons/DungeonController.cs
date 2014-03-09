@@ -9,6 +9,7 @@ public class DungeonController : MonoBehaviour {
     public EntitySpawnInformation[] Entities;
     public ShopSlotInformation[] ShopItems;
     public TreasureSpawnInformation[] Treasures;
+	public CoinRewardInformation CoinRewardRange;
 
     public float MinimumSpawnTime;
     public float MaximumSpawnTime;
@@ -153,4 +154,11 @@ public class DungeonController : MonoBehaviour {
         public GameObject TreasurePrefab;
         public int SpawnChance;
     }
+
+	[System.Serializable]
+	public class CoinRewardInformation
+	{
+		public int MinCoins;
+		public int MaxCoins;
+	}
 }
