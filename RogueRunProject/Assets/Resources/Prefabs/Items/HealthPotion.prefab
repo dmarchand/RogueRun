@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInstantOneTimeUse: 1
   Price: 100
-  DisplayName: Health Potion
+  DisplayName: Health Potion (Instant)
   SpriteName: potion
   Description: Recovers Health
   IsPurchased: 0

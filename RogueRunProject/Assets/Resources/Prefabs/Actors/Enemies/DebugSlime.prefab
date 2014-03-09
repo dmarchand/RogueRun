@@ -175,6 +175,7 @@ MonoBehaviour:
   Damage: 0
   BaseGold: 1
   StaminaReward: 1
+  DisplayName: DbgSlime
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

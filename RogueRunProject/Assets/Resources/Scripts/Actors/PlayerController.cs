@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 mPos;
     public float moveSpeed;
 
+    private LogController _logController;
+
     #region Vitals
 
     public float StaminaDrainRate;
@@ -164,6 +166,7 @@ public class PlayerController : MonoBehaviour
         _screenFlashController = GameObject.Find("FlashEffect").GetComponent<ScreenFlashController>();
 		_gameController = GameObject.Find("Main Camera").GetComponent<GameController>();
 		Inventory = new List<PurchasableItemController>();
+        _logController = GameObject.Find("LogDisplayLabel").GetComponent<LogController>();
     }
 
     void HandleInputs()
@@ -237,19 +240,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void AttackEnemy(int damage, int stamina)
+    public void AttackEnemy(EnemyController enemy)
     {
-
-        if (this.AttackPower < damage)
+        string logMessage = "You defeated " + enemy.DisplayName + ". ";
+        logMessage += "+" + enemy.GoldReward + " coins!";
+        if (this.AttackPower < enemy.Damage)
         {
-            this.CurrentHp -= damage;
+            this.CurrentHp -= enemy.Damage;
             _screenFlashController.FlashScreen(Color.red, 5);
-
+            logMessage += "\nBut you took " + enemy.Damage + " damage!";
 
         }
 
-        CurrentXP += damage;
-        CurrentStamina = Mathf.Min(CurrentStamina + stamina, MaxStamina);
+        CurrentXP += enemy.Damage;
+        CurrentStamina = Mathf.Min(CurrentStamina + enemy.StaminaReward, MaxStamina);
+
 
         
 
@@ -257,6 +262,7 @@ public class PlayerController : MonoBehaviour
         {
             LevelUp();
         }
+        _logController.AppendLine(logMessage);
     }
 
     public void RecoverStamina(int amount)

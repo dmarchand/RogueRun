@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public int BaseGold;
     public int StaminaReward;
 
+    public string DisplayName;
+
 	[HideInInspector]
 	public int GoldReward 
 	{

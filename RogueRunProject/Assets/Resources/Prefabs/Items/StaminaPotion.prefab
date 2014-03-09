@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInstantOneTimeUse: 1
   Price: 75
-  DisplayName: Stamina Potion
+  DisplayName: Stamina Potion (Instant)
   SpriteName: potion_green
   Description: Recovers Stamina
   IsPurchased: 0

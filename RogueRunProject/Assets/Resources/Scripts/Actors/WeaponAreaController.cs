@@ -83,7 +83,7 @@ public class WeaponAreaController : MonoBehaviour
     {
 
         Destroy(enemy.gameObject);
-        _player.AttackEnemy(enemy.Damage, enemy.StaminaReward);
+        _player.AttackEnemy(enemy);
         _player.Gold += enemy.GoldReward;
 
         this.renderer.enabled = true;
