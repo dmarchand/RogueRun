@@ -165,12 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb06fb6c96479d40a5adfae02444be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMin: 2
-  DamageMax: 8
+  DamageMin: 7
+  DamageMax: 15
   Damage: 0
-  BaseGold: 1
-  StaminaReward: 1
-  DisplayName: DbgSlime
+  BaseGold: 2
+  StaminaReward: 2
+  DisplayName: RedSlime
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

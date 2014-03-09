@@ -499,7 +499,7 @@ BoxCollider:
   m_GameObject: {fileID: 96267801}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .450704217, y: .450704217, z: .00100000005}
   m_Center: {x: .225352108, y: -.225352108, z: 0}
@@ -1420,7 +1420,7 @@ BoxCollider:
   m_GameObject: {fileID: 542675343}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .426056325, y: .0704225302, z: .00100000005}
   m_Center: {x: .213028163, y: -.0352112651, z: 0}
@@ -2932,8 +2932,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: a70342ba67d8db44780564f766baeca1, type: 2}
-  - {fileID: 2100000, guid: e773281c06b5e024db5e1a4f549afe5d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

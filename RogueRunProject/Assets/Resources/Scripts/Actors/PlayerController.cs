@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
 
         string logMessage = "You defeated " + enemy.DisplayName + ". ";
         logMessage += "+" + enemy.GoldReward + " coins!";
-        logMessage += "\nYou took " + enemy.Damage + " damage and gained " + enemy.StaminaReward + " stamina.";
+        logMessage += "\nYou took " + damage + " damage and gained " + enemy.StaminaReward + " stamina.";
         CurrentXP += enemy.Damage;
         CurrentStamina = Mathf.Min(CurrentStamina + enemy.StaminaReward, MaxStamina);
 
