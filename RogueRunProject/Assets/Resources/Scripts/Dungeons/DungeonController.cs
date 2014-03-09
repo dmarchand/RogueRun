@@ -10,6 +10,7 @@ public class DungeonController : MonoBehaviour {
     public ShopSlotInformation[] ShopItems;
     public TreasureSpawnInformation[] Treasures;
 	public CoinRewardInformation CoinRewardRange;
+	public TrapInformation TrapDetails;
 	public GameObject NextDungeon;
 	public int Depth;
 
@@ -61,6 +62,7 @@ public class DungeonController : MonoBehaviour {
             {
                 SpawnTreasure(treasure);
             }
+
 
 
             SetNextSpawnTime();
@@ -162,5 +164,12 @@ public class DungeonController : MonoBehaviour {
 	{
 		public int MinCoins;
 		public int MaxCoins;
+	}
+
+	[System.Serializable]
+	public class TrapInformation
+	{
+		public int TrapMinDamage;
+		public int TrapMaxDamage;
 	}
 }

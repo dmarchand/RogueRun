@@ -85,7 +85,20 @@ public class WeaponAreaController : MonoBehaviour
 			return;
 		}
 
+		TrapController trap = other.GetComponent<TrapController>();
+		if(trap)
+		{
+			CollideWithTrap(trap);
+			return;
+		}
+
     }
+
+	void CollideWithTrap(TrapController trap)
+	{
+		trap.TrapItemController.IsPurchased = true;
+		Destroy(trap.gameObject);
+	}
 
 	void CollideWithDungeonChange(DungeonLevelChangeController levelChange)
 	{

@@ -40,13 +40,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entities:
   - Entity: {fileID: 100000, guid: 8b326b45e79db6a4c93df8fe582d4ef6, type: 2}
-    SpawnChance: 93
+    SpawnChance: 88
   - Entity: {fileID: 100000, guid: 560717d6bfda6ca489590d2e516148db, type: 2}
-    SpawnChance: 3
-  - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
     SpawnChance: 2
+  - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
+    SpawnChance: 3
   - Entity: {fileID: 100000, guid: 2b5c9c4bdf5b94cf793a46930b7036bd, type: 2}
     SpawnChance: 2
+  - Entity: {fileID: 100000, guid: 41d42232cda754c959cceda392b20f5b, type: 2}
+    SpawnChance: 5
   ShopItems:
   - ShopSlotItems:
     - SpawnChance: 100
@@ -62,10 +64,15 @@ MonoBehaviour:
   - TreasurePrefab: {fileID: 100000, guid: fdabffc61861e4002b040f87734e48de, type: 2}
     SpawnChance: 25
   - TreasurePrefab: {fileID: 100000, guid: d58e6da25ee7a4893ba2628dfdb6891f, type: 2}
-    SpawnChance: 50
+    SpawnChance: 40
+  - TreasurePrefab: {fileID: 100000, guid: 8e35fca06c7364c868039b267f4f97f8, type: 2}
+    SpawnChance: 10
   CoinRewardRange:
     MinCoins: 10
     MaxCoins: 35
+  TrapDetails:
+    TrapMinDamage: 10
+    TrapMaxDamage: 30
   NextDungeon: {fileID: 100000, guid: b6d86022ed942426a8fd6610f807f334, type: 2}
   Depth: 1
   MinimumSpawnTime: 1
