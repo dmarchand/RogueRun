@@ -148,6 +148,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+	private int _baseDexterity;
+
+	public int Dexterity
+	{
+		get
+		{
+			return _baseDexterity;
+		}
+	}
+
     public int Gold;
     public int CurrentXP;
     public int XPToNextLevel;
@@ -302,6 +312,9 @@ public class PlayerController : MonoBehaviour
         _baseAttackPower += 1;
         MaxHp += 5;
 		CurrentHp += 5;
+		CurrentStamina += 10;
+		MaxStamina += 10;
+		StaminaDrainRate += .005f;
         //CurrentHp = MaxHp;
         CurrentLevel++;
     }

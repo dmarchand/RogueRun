@@ -10,11 +10,13 @@ public class GameController : MonoBehaviour
     private dfPanel[] _shopItemContainers;
 	public bool IsPaused;
 	private LogController _logController;
+	private PauseWindowController _pauseWindowController;
 
     // Use this for initialization
     void Start()
     {
         _shopWindowController = GameObject.Find("ShopWindowPanel").GetComponent<ShopWindowController>();
+		_pauseWindowController = GameObject.Find("PausePanel").GetComponent<PauseWindowController>();
         _shopItemContainers = new dfPanel[4];
 
         _shopItemContainers[0] = GameObject.Find("ShopItemContainer1").GetComponent<dfPanel>();
@@ -34,8 +36,23 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		if(!IsPaused && Input.GetKeyDown(KeyCode.P))
+		{
+			Pause();
+		}
     }
+
+	public void Pause()
+	{
+		IsPaused = true;
+		_pauseWindowController.GetComponent<dfPanel>().IsVisible = true;
+	}
+
+	public void Unpause()
+	{
+		IsPaused = false;
+		_pauseWindowController.GetComponent<dfPanel>().IsVisible = false;
+	}
 
 	public void AdvanceToDungeon(GameObject dungeonPrefab) 
 	{

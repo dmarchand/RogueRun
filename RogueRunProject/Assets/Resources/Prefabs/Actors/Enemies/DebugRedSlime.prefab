@@ -169,7 +169,7 @@ MonoBehaviour:
   DamageMax: 15
   Damage: 0
   BaseGold: 2
-  StaminaReward: 2
+  StaminaReward: 4
   DisplayName: RedSlime
 --- !u!114 &11400006
 MonoBehaviour:
