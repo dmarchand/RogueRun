@@ -42,7 +42,7 @@ MonoBehaviour:
   - Entity: {fileID: 100002, guid: 5675b9b7ba6364710aebaf5947487c12, type: 2}
     SpawnChance: 98
   - Entity: {fileID: 100000, guid: 560717d6bfda6ca489590d2e516148db, type: 2}
-    SpawnChance: 2
+    SpawnChance: 0
   - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
     SpawnChance: 2
   ShopItems:
@@ -64,6 +64,9 @@ MonoBehaviour:
   CoinRewardRange:
     MinCoins: 10
     MaxCoins: 35
+  TrapDetails:
+    TrapMinDamage: 0
+    TrapMaxDamage: 0
   NextDungeon: {fileID: 0}
   Depth: 2
   MinimumSpawnTime: .300000012

@@ -42,7 +42,7 @@ MonoBehaviour:
   - Entity: {fileID: 100000, guid: 8b326b45e79db6a4c93df8fe582d4ef6, type: 2}
     SpawnChance: 88
   - Entity: {fileID: 100000, guid: 560717d6bfda6ca489590d2e516148db, type: 2}
-    SpawnChance: 2
+    SpawnChance: 0
   - Entity: {fileID: 100000, guid: e4f41d7d80cf8fe46b12b272914270e6, type: 2}
     SpawnChance: 3
   - Entity: {fileID: 100000, guid: 2b5c9c4bdf5b94cf793a46930b7036bd, type: 2}

@@ -45,6 +45,7 @@ MonoBehaviour:
   SpriteName: potion
   Description: Recovers Health
   IsPurchased: 0
+  IsTrap: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f343868e51d6c413ca892761c0cebe44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthRecovered: 50
+  HealthRecovered: 1000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

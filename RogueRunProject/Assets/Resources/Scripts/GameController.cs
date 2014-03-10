@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
 	{
 		if(ActiveDungeon != null) 
 		{
+			ActiveDungeon.GenerateShop();
 			Destroy(ActiveDungeon.gameObject);
 		}
 
@@ -48,6 +49,8 @@ public class GameController : MonoBehaviour
 		ActiveDungeon = spawnedDungeon.GetComponent<DungeonController>();
 
 		_logController.AppendLine("You entered Level " + ActiveDungeon.Depth);
+
+
 
 	}
 
